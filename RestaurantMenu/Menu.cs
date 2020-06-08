@@ -11,19 +11,26 @@ namespace RestaurantMenu
 
         public Menu(DateTime menuDateTime)
         {
-            MenuItems = [];
+            MenuItems = new List<MenuItem>();
             MenuDateTime = menuDateTime;
         }
 
         public void AddItem(MenuItem item) 
         {
-            menuItems.Add(item);
+            if (MenuItems.IndexOf(item) == -1)
+            {
+                MenuItems.Add(item);
+            }
+            else
+            {
+                Console.WriteLine("The menu already has this item.");
+            }
         }
 
         public void RemoveItem(MenuItem item)
         {
-            int menuIndex = menuItems.IndexOf(item);
-            menuItems.RemoveAt(menuIndex);
+            int menuIndex = MenuItems.IndexOf(item);
+            MenuItems.RemoveAt(menuIndex);
         }
 
 
@@ -34,47 +41,22 @@ namespace RestaurantMenu
 
         public DateTime LastUpdated(Menu obj)
         {
-            return obj.menuDateTime;
+            return obj.MenuDateTime;
         }
 
         public void PrintMenu()
         {
-            for (int i = 0; i < menuItems.Count; i++)
+            for (int i = 0; i < MenuItems.Count; i++)
             {
-                Console.WriteLine(menuItems[i]);
+                Console.WriteLine(MenuItems[i]);
             }         
         }
 
         public void PrintMenuItem(MenuItem item)
         {
-            int menuIndex = menuItems.IndexOf(item);
-            Console.WriteLine(menuItems[menuIndex]);
+            int menuIndex = MenuItems.IndexOf(item);
+            Console.WriteLine(MenuItems[menuIndex]);
         }
-
-        public override bool Equals(object toBeCompared)
-        {
-            if (toBeCompared == null)
-            {
-                return false;
-            }
-            if (toBeCompared.GetType() != this.GetType())
-            {
-                return false;
-            }
-            Menu s = toBeCompared as Menu;
-            return s.MenuItems == MenuItems;
-        }
+    
     }
 }
-
-//MenuItem pizza = new MenuItem;
-//menu.AddItem(pizza);
-
-//can we return a Menu Class from an instance method?
-//Do we even have to make a new Menu class --I'm assuming the answer is yes because we need to update the time
-
-//public void RemoveItem(List<MenuItem> item)
-//{
-//    menuItems = item;
-//}
-

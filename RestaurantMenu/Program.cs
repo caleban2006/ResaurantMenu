@@ -10,13 +10,13 @@ namespace RestaurantMenu
             MenuItem pizza = new MenuItem(8.99, "Awful", "Italian", true);
             MenuItem burger = new MenuItem(7.99, "Beefy", "French", true);
 
-            Menu summerMenu = new Menu();
+            //Menu summerMenu = new Menu();
 
-            summerMenu.AddItem(calzone);
-            summerMenu.AddItem(pizza);
-            summerMenu.AddItem(burger);
+            //summerMenu.AddItem(calzone);
+            //summerMenu.AddItem(pizza);
+            //summerMenu.AddItem(burger);
 
-            summerMenu.PrintMenu();
+            //summerMenu.PrintMenu();
         }
     }
 }
